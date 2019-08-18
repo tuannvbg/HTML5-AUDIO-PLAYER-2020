@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<!-- Website Design By: www.happyworm.com -->
+<title>Demo : jPlayer as an audio playlist player</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />
+<link href="css/player.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="js/jplayer.playlist.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){
+
+
+	new jPlayerPlaylist({
+		jPlayer: "#jquery_jplayer_1",
+		cssSelectorAncestor: "#jp_container_1"
+	}, 
+	[
+		{
+			title:"Cro Magnon Man",
+			mp3:"http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3"
+		},
+		{
+			title:"Your Face",
+			mp3:"http://www.jplayer.org/audio/mp3/TSP-05-Your_face.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/TSP-05-Your_face.ogg"
+		},
+		{
+			title:"Cyber Sonnet",
+			mp3:"http://www.jplayer.org/audio/mp3/TSP-07-Cybersonnet.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/TSP-07-Cybersonnet.ogg"
+		},
+		{
+			title:"Tempered Song",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-01-Tempered-song.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-01-Tempered-song.ogg"
+		},
+		{
+			title:"Hidden",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-02-Hidden.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-02-Hidden.ogg"
+		},
+		{
+			title:"Lentement",
+			free:true,
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-03-Lentement.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-03-Lentement.ogg"
+		},
+		{
+			title:"Lismore",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-04-Lismore.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-04-Lismore.ogg"
+		},
+		{
+			title:"The Separation",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-05-The-separation.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-05-The-separation.ogg"
+		},
+		{
+			title:"Beside Me",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-06-Beside-me.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-06-Beside-me.ogg"
+		},
+		{
+			title:"Bubble",
+			free:true,
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-07-Bubble.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+		},
+		{
+			title:"Stirring of a Fool",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-08-Stirring-of-a-fool.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-08-Stirring-of-a-fool.ogg"
+		},
+		{
+			title:"Partir",
+			free: true,
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-09-Partir.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-09-Partir.ogg"
+		},
+		{
+			title:"Thin Ice",
+			mp3:"http://www.jplayer.org/audio/mp3/Miaow-10-Thin-ice.mp3",
+			oga:"http://www.jplayer.org/audio/ogg/Miaow-10-Thin-ice.ogg"
+		}
+	], 
+		{	
+		swfPath: "js",
+		supplied: "oga, mp3",
+		wmode: "window",
+		useStateClassSkin: true,
+		autoBlur: false,
+		smoothPlayBar: true,
+		keyEnabled: true
+	});
+	
+	$('.share').click(function(){
+		$('.share-popup').delay(100).animate({
+			"top": 0+"%",
+			"z-index": 9999999,
+			"opacity":1
+		});
+	});
+	
+	$('.popup-dialog>.close').click(function(){
+		$('.share-popup').animate({
+			"top": -200+"%",
+			"z-index":-9999999,
+			"opacity":0
+		});
+	});
+});
+//]]>
+</script>
+</head>
+<body>
+<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<div id="jp_container_1" class="jp-audio audio" role="application" aria-label="media player">
+	<div class="jp-type-playlist">
+		<div class="jp-gui jp-interface interface">
+			<div class="image">
+				<img src="image/right-arrow.png">
+			</div>
+			<div class="jp-controls controls">
+				<button class="jp-previous previous" role="button" tabindex="0">previous</button>
+				<button class="jp-play play" role="button" tabindex="0">play</button>
+				<button class="jp-next next" role="button" tabindex="0">next</button>
+				<!-- <button class="jp-stop madsidy-stop" role="button" tabindex="0">stop</button> -->
+			</div>
+			
+			<div class="mid">
+				<div class="jp-details details">
+					<div class="jp-title title" aria-label="title">&nbsp;</div>
+				</div>
+				<div class="jp-time-holder time-holder">
+					<div class="jp-current-time current-time" role="timer" aria-label="time">&nbsp;</div>
+					<div class="jp-duration duration" role="timer" aria-label="duration">&nbsp;</div>
+				</div>
+				<div class="jp-progress progress">
+					<div class="jp-seek-bar seek-bar">
+						<div class="jp-play-bar paly-bar"></div>
+					</div>
+				</div>
+			</div>
+			<div class="jp-volume-controls volume-controls">
+				<button class="jp-mute mute" role="button" tabindex="0">mute</button>
+				<button class="jp-volume-max volume-max" role="button" tabindex="0">max volume</button>
+				<div class="jp-volume-bar volume-bar">
+					<div class="jp-volume-bar-value volume-bar-value"></div>
+				</div>
+			</div>
+			<div class="jp-toggles toggles">
+				<button class="jp-shuffle shuffle" role="button" tabindex="0">shuffle</button>
+				<button class="jp-repeat repeat" role="button" tabindex="0">repeat</button>				
+				<button class="download" role="button" tabindex="0">download</button>
+				<button class="like" role="button" tabindex="0">like</button>			
+				<button class="dislike" role="button" tabindex="0">dislike</button>
+				<button class="views" role="button" tabindex="0">views</button>
+				<button class="share" role="button" tabindex="0">share</button>
+			</div>
+		</div>
+		<div class="jp-playlist" style="display:none;">
+			<ul>
+				<li>&nbsp;</li>
+			</ul>
+		</div>
+		<div class="jp-no-solution">
+			<span>Update Required</span>
+			To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+		</div>
+	</div>
+</div>
+
+<!-- share popup begin -->
+<div class="share-popup">
+	<div class="share-popup-overlay"></div>
+	<div class="popup-dialog">
+		<i class="close">&times;</i>
+		<header>
+			<h2 class="promptText">Sign in to share this album.</h2>
+		</header>
+		<section>
+			<div class="thirdParty">
+				<button class="facebook" data-provider="facebook">
+					<i class="facebook_40"></i>
+					<span>Facebook</span>
+				</button>
+				<button class="twitter" data-provider="twitter">
+					<i class="twitter_40"></i>
+					<span>Twitter</span>
+				</button>
+				<button class="google" data-provider="google-plus">
+					<i class="google_40"></i>
+					<span>Google</span>
+				</button>
+			</div>
+		</section>
+	</div>
+</div>
+<!-- share popup end -->
+</body>
+
+</html>
